@@ -1,0 +1,14 @@
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\IconAutomatorPro.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\DdsFileTypePlusIO_x64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\oo2core_6_win64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\D3DCompiler_47_cor3.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\PenImc_cor3.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\PresentationNative_cor3.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\vcruntime140_cor3.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\wpfgfx_cor3.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\Magick.Native-Q16-x64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\DdsFileTypePlus.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\PaintDotNet.Base.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\SoulsFormats.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\SoulsFormats.xml
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\IconAutomatorPro\bin\Debug\net6.0-windows\publish\win-x64\IconAutomatorPro.exe
