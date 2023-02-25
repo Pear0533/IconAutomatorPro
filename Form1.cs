@@ -1,7 +1,6 @@
 using System.Text;
 using System.Xml.Linq;
 using DdsFileTypePlus;
-using Gameloop.Vdf.Linq;
 using ImageMagick;
 using PaintDotNet;
 using SoulsFormats;
@@ -22,6 +21,7 @@ public partial class Form1 : Form
     private static XElement? layoutFile;
     private static string[] iconImagePaths = { };
     private static IMagickImage<ushort> iconSheet = new MagickImage();
+    private static readonly string iconMaskPath = $"{Directory.GetCurrentDirectory()}\\mask.psd";
 
     public Form1()
     {
@@ -32,11 +32,6 @@ public partial class Form1 : Form
     private static void ShowInformationDialog(string str)
     {
         MessageBox.Show(str, @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    }
-
-    private static VToken GetChildValue(VToken token, int index)
-    {
-        return ((VProperty)((VProperty)token).Value.Children().ElementAt(index)).Value;
     }
 
     private void GetAllLayoutFileEntries()
@@ -121,6 +116,8 @@ public partial class Form1 : Form
         byte[] newIconImageBytes = File.ReadAllBytes(iconImagePaths[iconImagePaths.Length - layoutEntryCounter - 1]);
         IMagickImage<ushort> newIconImage = MagickImage.FromBase64(Convert.ToBase64String(newIconImageBytes));
         newIconImage.Resize(160, 160);
+        IMagickImage<ushort> maskImage = MagickImage.FromBase64(Convert.ToBase64String(File.ReadAllBytes(iconMaskPath)));
+        newIconImage.Composite(maskImage, CompositeOperator.DstIn, Channels.Alpha);
         iconSheet.Composite(newIconImage, x, y, CompositeOperator.Replace);
     }
 
