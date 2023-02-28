@@ -33,6 +33,10 @@
             this.automationSetupGroupBox = new System.Windows.Forms.GroupBox();
             this.layoutFileGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.iconsHeightNumBox = new System.Windows.Forms.NumericUpDown();
+            this.iconsWidthNumBox = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.maxNumRowsNumBox = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,9 +53,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.automateButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.versionStr = new System.Windows.Forms.Label();
             this.automationSetupGroupBox.SuspendLayout();
             this.layoutFileGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconsHeightNumBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconsWidthNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxNumRowsNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPaddingNumBox)).BeginInit();
             this.gameModFolderGroupBox.SuspendLayout();
@@ -79,7 +86,7 @@
             this.automationSetupGroupBox.Controls.Add(this.iconImagesGroupBox);
             this.automationSetupGroupBox.Location = new System.Drawing.Point(8, 18);
             this.automationSetupGroupBox.Name = "automationSetupGroupBox";
-            this.automationSetupGroupBox.Size = new System.Drawing.Size(536, 263);
+            this.automationSetupGroupBox.Size = new System.Drawing.Size(536, 305);
             this.automationSetupGroupBox.TabIndex = 3;
             this.automationSetupGroupBox.TabStop = false;
             this.automationSetupGroupBox.Text = "Automation Setup";
@@ -92,23 +99,69 @@
             this.layoutFileGroupBox.Enabled = false;
             this.layoutFileGroupBox.Location = new System.Drawing.Point(6, 171);
             this.layoutFileGroupBox.Name = "layoutFileGroupBox";
-            this.layoutFileGroupBox.Size = new System.Drawing.Size(524, 87);
+            this.layoutFileGroupBox.Size = new System.Drawing.Size(524, 129);
             this.layoutFileGroupBox.TabIndex = 11;
             this.layoutFileGroupBox.TabStop = false;
             this.layoutFileGroupBox.Text = "Layout File";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.iconsHeightNumBox);
+            this.groupBox1.Controls.Add(this.iconsWidthNumBox);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.maxNumRowsNumBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.iconPaddingNumBox);
-            this.groupBox1.Location = new System.Drawing.Point(262, 13);
+            this.groupBox1.Location = new System.Drawing.Point(262, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 68);
+            this.groupBox1.Size = new System.Drawing.Size(256, 110);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Icon Sheet";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(112, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 15);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Icons Height:";
+            // 
+            // iconsHeightNumBox
+            // 
+            this.iconsHeightNumBox.Location = new System.Drawing.Point(114, 79);
+            this.iconsHeightNumBox.Maximum = new decimal(new int[] {
+            4096,
+            0,
+            0,
+            0});
+            this.iconsHeightNumBox.Name = "iconsHeightNumBox";
+            this.iconsHeightNumBox.Size = new System.Drawing.Size(136, 23);
+            this.iconsHeightNumBox.TabIndex = 18;
+            // 
+            // iconsWidthNumBox
+            // 
+            this.iconsWidthNumBox.Location = new System.Drawing.Point(6, 79);
+            this.iconsWidthNumBox.Maximum = new decimal(new int[] {
+            4096,
+            0,
+            0,
+            0});
+            this.iconsWidthNumBox.Name = "iconsWidthNumBox";
+            this.iconsWidthNumBox.Size = new System.Drawing.Size(102, 23);
+            this.iconsWidthNumBox.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 15);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Icons Width:";
             // 
             // maxNumRowsNumBox
             // 
@@ -145,7 +198,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 29);
+            this.label1.Location = new System.Drawing.Point(4, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 15);
             this.label1.TabIndex = 10;
@@ -157,7 +210,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutFileSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.layoutFileSelector.FormattingEnabled = true;
-            this.layoutFileSelector.Location = new System.Drawing.Point(6, 48);
+            this.layoutFileSelector.Location = new System.Drawing.Point(6, 60);
             this.layoutFileSelector.Name = "layoutFileSelector";
             this.layoutFileSelector.Size = new System.Drawing.Size(250, 23);
             this.layoutFileSelector.TabIndex = 0;
@@ -247,7 +300,7 @@
             // 
             this.automateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.automateButton.Enabled = false;
-            this.automateButton.Location = new System.Drawing.Point(7, 285);
+            this.automateButton.Location = new System.Drawing.Point(7, 326);
             this.automateButton.Name = "automateButton";
             this.automateButton.Size = new System.Drawing.Size(539, 25);
             this.automateButton.TabIndex = 7;
@@ -264,11 +317,24 @@
             this.statusLabel.TabIndex = 10;
             this.statusLabel.Visible = false;
             // 
+            // versionStr
+            // 
+            this.versionStr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.versionStr.AutoSize = true;
+            this.versionStr.ForeColor = System.Drawing.Color.Gray;
+            this.versionStr.Location = new System.Drawing.Point(309, 6);
+            this.versionStr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.versionStr.Name = "versionStr";
+            this.versionStr.Size = new System.Drawing.Size(48, 15);
+            this.versionStr.TabIndex = 11;
+            this.versionStr.Text = "Version:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 317);
+            this.ClientSize = new System.Drawing.Size(556, 357);
+            this.Controls.Add(this.versionStr);
             this.Controls.Add(this.copyrightInfoStr);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.automateButton);
@@ -284,6 +350,8 @@
             this.layoutFileGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconsHeightNumBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconsWidthNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxNumRowsNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPaddingNumBox)).EndInit();
             this.gameModFolderGroupBox.ResumeLayout(false);
@@ -316,5 +384,10 @@
         private Button browseGameModFolderButton;
         private Label gameModFolderPathLabel;
         private Label label6;
+        private Label versionStr;
+        private Label label5;
+        private NumericUpDown iconsWidthNumBox;
+        private Label label7;
+        private NumericUpDown iconsHeightNumBox;
     }
 }

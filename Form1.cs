@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using System.Xml.Linq;
 using DdsFileTypePlus;
@@ -21,12 +22,18 @@ public partial class Form1 : Form
     private static XElement? layoutFile;
     private static string[] iconImagePaths = { };
     private static IMagickImage<ushort> iconSheet = new MagickImage();
-    private static readonly string iconMaskPath = $"{Directory.GetCurrentDirectory()}\\mask.psd";
+    private const string version = "1.3";
 
     public Form1()
     {
         InitializeComponent();
+        SetVersionString();
         CenterToScreen();
+    }
+
+    private void SetVersionString()
+    {
+        versionStr.Text += $@" {version}";
     }
 
     private static void ShowInformationDialog(string str)
@@ -40,11 +47,13 @@ public partial class Form1 : Form
         {
             layoutFilesBnd = BND4.Read(layoutFilesBndPath);
             layoutFileSelector.Items.Clear();
-            foreach (BinderFile layoutFileEntry in layoutFilesBnd.Files.Where(i => i.Name.Contains("Icon")))
+            foreach (BinderFile layoutFileEntry in layoutFilesBnd.Files.Where(i => i.Name.Contains("Icon") || i.Name.Contains("Status")))
                 layoutFileSelector.Items.Add(Path.GetFileNameWithoutExtension(layoutFileEntry.Name));
             layoutFileSelector.SelectedIndex = layoutFileSelector.Items.IndexOf("SB_Icon_03");
             iconPaddingNumBox.Value = 3;
             maxNumRowsNumBox.Value = 43;
+            iconsWidthNumBox.Value = 160;
+            iconsHeightNumBox.Value = 160;
         }
         else
         {
@@ -111,13 +120,12 @@ public partial class Form1 : Form
         return id;
     }
 
-    private static void AddIconToIconSheet(int layoutEntryCounter, int x, int y)
+    private static void AddIconToIconSheet(int layoutEntryCounter, int x, int y, int width, int height)
     {
         byte[] newIconImageBytes = File.ReadAllBytes(iconImagePaths[iconImagePaths.Length - layoutEntryCounter - 1]);
         IMagickImage<ushort> newIconImage = MagickImage.FromBase64(Convert.ToBase64String(newIconImageBytes));
-        newIconImage.Resize(160, 160);
-        IMagickImage<ushort> maskImage = MagickImage.FromBase64(Convert.ToBase64String(File.ReadAllBytes(iconMaskPath)));
-        newIconImage.Composite(maskImage, CompositeOperator.DstIn, Channels.Alpha);
+        newIconImage.Resize(width, height);
+        newIconImage.Sharpen();
         iconSheet.Composite(newIconImage, x, y, CompositeOperator.Replace);
     }
 
@@ -181,8 +189,12 @@ public partial class Form1 : Form
             int.Parse(((XElement)i).Attribute("y")?.Value.ToString()!)).LastOrDefault()!;
         int lastEntryX = int.Parse(lastEntry.Attribute("x")?.Value!);
         int lastEntryY = int.Parse(lastEntry.Attribute("y")?.Value!);
-        int lastEntryWidth = int.Parse(lastEntry.Attribute("width")?.Value!) + padding;
-        int lastEntryHeight = int.Parse(lastEntry.Attribute("height")?.Value!) + padding;
+        int.TryParse(iconsWidthNumBox.Value.ToString(CultureInfo.InvariantCulture), out int iconsWidth);
+        int.TryParse(iconsHeightNumBox.Value.ToString(CultureInfo.InvariantCulture), out int iconsHeight);
+        if (iconsWidth == 0) iconsWidth = 160;
+        if (iconsHeight == 0) iconsHeight = 160;
+        iconsWidth += padding;
+        iconsHeight += padding;
         int newEntryCount = iconImagePaths.Length;
         while (newEntryCount > 0)
         {
@@ -190,17 +202,18 @@ public partial class Form1 : Form
             string newEntryName = Path.GetFileName(iconImagePaths[^(newEntryCount + 1)]);
             var newEntry = new XElement(lastEntry);
             int newEntryId = GetIconIDFromName(newEntryName);
-            lastEntryY += lastEntryHeight;
-            if (lastEntryY / lastEntryHeight >= maxNumRows)
+            lastEntryY += iconsHeight;
+            if (lastEntryY / iconsHeight >= maxNumRows)
             {
                 lastEntryY = 0;
-                lastEntryX += lastEntryWidth;
+                lastEntryX += iconsWidth;
             }
             newEntry.Attribute("name")!.Value = $"MENU_ItemIcon_{newEntryId}.png";
             newEntry.Attribute("y")!.Value = lastEntryY.ToString();
             newEntry.Attribute("x")!.Value = lastEntryX.ToString();
             layoutFile.Add(newEntry);
-            AddIconToIconSheet(newEntryCount, lastEntryX, lastEntryY);
+
+            AddIconToIconSheet(newEntryCount, lastEntryX, lastEntryY, iconsWidth, iconsHeight);
         }
         layoutFilesBnd.Files[layoutFileEntryIndex].Bytes = Encoding.UTF8.GetBytes(layoutFile.ToString());
         layoutFilesBnd.Write(layoutFilesBndPath);
