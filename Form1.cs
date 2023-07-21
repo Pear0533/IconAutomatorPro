@@ -12,7 +12,7 @@ namespace IconAutomatorPro;
 
 public partial class Form1 : Form
 {
-    private const string version = "1.5";
+    private const string version = "1.7";
     private static string gameModFolderPath = "";
     private static string layoutFilesBndPath = "";
     private static string iconSheetsTpfPath = "";
@@ -25,6 +25,8 @@ public partial class Form1 : Form
     private static string[] iconImagePaths = { };
     private static IMagickImage<ushort> iconSheet = new MagickImage();
     private static bool isGameDS3;
+    private static bool wantsIconSheet;
+    private static bool wantsHdIcons;
 
     public Form1()
     {
@@ -45,7 +47,7 @@ public partial class Form1 : Form
 
     private static bool IsValidIconSheet(string iconSheetName)
     {
-        return iconSheetName.Contains("_Icon_") || iconSheetName.Contains("_Status_");
+        return iconSheetName.Contains("_Icon_") || iconSheetName.Contains("_Status_") || iconSheetName.Contains("Preset");
     }
 
     private void GetAllIconSheetEntries()
@@ -63,6 +65,8 @@ public partial class Form1 : Form
         rowNumBox.Value = 1;
         columnNumBox.Value = 1;
         manualInsertLocationCheckbox.Checked = true;
+        iconSheetCheckbox.Checked = true;
+        hdIconsCheckbox.Checked = true;
         insertVerticallyCheckbox.Checked = !isGameDS3;
         insertVerticallyCheckbox.Enabled = !isGameDS3;
         manualInsertLocationCheckbox.Checked = isGameDS3;
@@ -73,7 +77,7 @@ public partial class Form1 : Form
 
     private void BrowseIconImagesButton_Click(object sender, EventArgs e)
     {
-        var dialog = new OpenFileDialog
+        OpenFileDialog dialog = new()
         {
             Filter = @"DDS File (*.dds)|*.dds",
             Title = @"Select Icon DDS Images",
@@ -94,19 +98,19 @@ public partial class Form1 : Form
     private async Task WriteHDIcons()
     {
         statusLabel.Invoke(() => statusLabel.Text = @"Writing HD icons...");
-        var hdIconsBhd = new BXF4();
+        BXF4? hdIconsBhd = new();
         if (!isGameDS3)
         {
             hdIconsBhd = BXF4.Read(hdIconsBhdPath, hdIconsBdtPath);
-            var backupHdIconsBhdPath = $"{hdIconsBhdPath}.bak";
-            var backupHdIconsBtdPath = $"{hdIconsBdtPath}.bak";
+            string backupHdIconsBhdPath = $"{hdIconsBhdPath}.bak";
+            string backupHdIconsBtdPath = $"{hdIconsBdtPath}.bak";
             if (!File.Exists(backupHdIconsBhdPath))
                 hdIconsBhd.Write(backupHdIconsBhdPath, backupHdIconsBtdPath);
         }
         foreach (string iconImagePath in iconImagePaths)
         {
             byte[] ddsBytes = await File.ReadAllBytesAsync(iconImagePath);
-            var dds = new DDS(ddsBytes);
+            DDS dds = new(ddsBytes);
             // TODO: REFACTOR
             byte formatByte = 107;
             try
@@ -115,7 +119,7 @@ public partial class Form1 : Form
             }
             catch { }
             string iconName = Path.GetFileNameWithoutExtension(iconImagePath);
-            var iconTpf = new TPF { Compression = isGameDS3 ? DCX.Type.DCX_DFLT_10000_44_9 : DCX.Type.DCX_KRAK };
+            TPF iconTpf = new() { Compression = isGameDS3 ? DCX.Type.DCX_DFLT_10000_44_9 : DCX.Type.DCX_KRAK };
             IMagickImage<ushort> newHdIconImage = MagickImage.FromBase64(Convert.ToBase64String(ddsBytes));
             newHdIconImage = AddIconShadow(newHdIconImage);
             if (isGameDS3) newHdIconImage.Resize(512, 512);
@@ -125,8 +129,8 @@ public partial class Form1 : Form
             if (isGameDS3) iconTpf.Write($"{knowledgeFolderPath}\\{iconName.ToLower()}.tpf.dcx");
             else
             {
-                var iconEntryName = $"00_Solo\\{iconName}.tpf.dcx";
-                var iconEntry = new BinderFile(Binder.FileFlags.Flag1, hdIconsBhd.Files.Count, iconEntryName, iconTpf.Write());
+                string iconEntryName = $"00_Solo\\{iconName}.tpf.dcx";
+                BinderFile iconEntry = new(Binder.FileFlags.Flag1, hdIconsBhd.Files.Count, iconEntryName, iconTpf.Write());
                 hdIconsBhd.Files.Add(iconEntry);
             }
         }
@@ -186,10 +190,10 @@ public partial class Form1 : Form
 
     private static byte[] ConvertMagickImageToDDS(IMagickImage image)
     {
-        var ogDdsStream = new MemoryStream();
+        MemoryStream ogDdsStream = new();
         image.Write(ogDdsStream, MagickFormat.Dds);
         Surface ddsSurface = DdsFile.Load(ogDdsStream.ToArray());
-        var recomDdsStream = new MemoryStream();
+        MemoryStream recomDdsStream = new();
         DdsFile.Save(recomDdsStream, DdsFileFormat.BC7, DdsErrorMetric.Perceptual, BC7CompressionSpeed.Fast,
             false, false, ResamplingAlgorithm.Bicubic, ddsSurface, null);
         return recomDdsStream.ToArray();
@@ -255,16 +259,16 @@ public partial class Form1 : Form
         int iconsHeightWithPadding = iconsHeight + padding;
         int newEntryCount = iconImagePaths.Length;
         int layoutFileEntryIndex = ReadLayoutFile(iconSheetName);
-        var lastLayoutEntry = (XElement)layoutFile?.Nodes().OrderBy(i =>
+        XElement lastLayoutEntry = (XElement)layoutFile?.Nodes().OrderBy(i =>
             int.Parse(((XElement)i).Attribute("x")?.Value.ToString()!)).ThenBy(i =>
             int.Parse(((XElement)i).Attribute("y")?.Value.ToString()!)).LastOrDefault()!;
         int lastEntryX = 0, lastEntryY = 0;
         if (manualInsertLocationCheckbox.Checked)
         {
-            var lastEntryRowNum = (int)rowNumBox.Value;
-            var lastEntryColumnNum = (int)columnNumBox.Value;
-            lastEntryX = (iconsWidthWithPadding + 1) * lastEntryColumnNum - (iconsWidthWithPadding + 1);
-            lastEntryY = iconsHeightWithPadding * lastEntryRowNum - iconsHeightWithPadding;
+            int lastEntryRowNum = (int)rowNumBox.Value;
+            int lastEntryColumnNum = (int)columnNumBox.Value;
+            lastEntryX = iconsWidthWithPadding * (lastEntryColumnNum - (insertVerticallyCheckbox.Checked ? 0 : 1)) - iconsWidthWithPadding;
+            lastEntryY = iconsHeightWithPadding * (lastEntryRowNum - (insertVerticallyCheckbox.Checked ? 1 : 0)) - iconsHeightWithPadding;
         }
         else if (!isGameDS3)
         {
@@ -296,7 +300,7 @@ public partial class Form1 : Form
             if (!isGameDS3)
             {
                 string newEntryName = Path.GetFileName(iconImagePaths[^(newEntryCount + 1)]);
-                var newEntry = new XElement(lastLayoutEntry);
+                XElement newEntry = new(lastLayoutEntry);
                 int newEntryId = GetIconIDFromName(newEntryName);
                 newEntry.Attribute("name")!.Value = $"{layoutEntryIdentifier}_{newEntryId}.png";
                 newEntry.Attribute("y")!.Value = lastEntryY.ToString();
@@ -341,7 +345,12 @@ public partial class Form1 : Form
 
     private async void AutomateButton_Click(object sender, EventArgs e)
     {
-        var selectedIconSheetName = iconSheetSelector.SelectedItem.ToString();
+        if (!iconSheetCheckbox.Checked && !hdIconsCheckbox.Checked)
+        {
+            ShowInformationDialog("At least one automation option must be selected (icon sheet and/or HD icons).");
+            return;
+        }
+        string? selectedIconSheetName = iconSheetSelector.SelectedItem.ToString();
         if (selectedIconSheetName == null)
         {
             ShowInformationDialog("No icon sheet has been specified in the automation setup.");
@@ -352,8 +361,8 @@ public partial class Form1 : Form
             if (!VerifyIconImagesIntegrity()) return;
             ToggleAutomationControls(false);
             statusLabel.Invoke(() => statusLabel.Visible = true);
-            WriteIconSheet(selectedIconSheetName, (int)iconPaddingNumBox.Value, (int)maxIconsPerRowColNumBox.Value);
-            await WriteHDIcons();
+            if (iconSheetCheckbox.Checked) WriteIconSheet(selectedIconSheetName, (int)iconPaddingNumBox.Value, (int)maxIconsPerRowColNumBox.Value);
+            if (hdIconsCheckbox.Checked) await WriteHDIcons();
             statusLabel.Invoke(() => statusLabel.Text = @"Automation complete!");
             await Task.Delay(2000);
             statusLabel.Invoke(() => statusLabel.Visible = false);
@@ -382,7 +391,7 @@ public partial class Form1 : Form
 
     private void BrowseGameModFolderButton_Click(object sender, EventArgs e)
     {
-        var dialog = new FolderBrowserDialog
+        FolderBrowserDialog dialog = new()
         {
             Description = @"Open Game/Mod Folder",
             UseDescriptionForTitle = true
@@ -416,6 +425,17 @@ public partial class Form1 : Form
     private void ManualInsertLocationCheckbox_CheckedChanged(object sender, EventArgs e)
     {
         insertLocationGroupBox.Enabled = manualInsertLocationCheckbox.Checked;
+    }
+
+    private void IconSheetCheckbox_CheckedChanged(object sender, EventArgs e)
+    {
+        wantsIconSheet = !wantsIconSheet;
+        iconSheetGroupBox.Enabled = wantsIconSheet;
+    }
+
+    private void HDIconsCheckbox_CheckedChanged(object sender, EventArgs e)
+    {
+        wantsHdIcons = !wantsHdIcons;
     }
 
     private enum TextureFormats

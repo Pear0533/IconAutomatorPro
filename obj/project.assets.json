@@ -5109,11 +5109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Syncthing Shared\\Game Mods & Tools\\Tools\\FromSoftware\\Repositories\\Active\\IconAutomatorPro\\IconAutomatorPro.csproj",
+      "projectUniqueName": "D:\\IconAutomatorPro\\IconAutomatorPro.csproj",
       "projectName": "IconAutomatorPro",
-      "projectPath": "D:\\Syncthing Shared\\Game Mods & Tools\\Tools\\FromSoftware\\Repositories\\Active\\IconAutomatorPro\\IconAutomatorPro.csproj",
+      "projectPath": "D:\\IconAutomatorPro\\IconAutomatorPro.csproj",
       "packagesPath": "C:\\Users\\Isaac Fisher\\.nuget\\packages\\",
-      "outputPath": "D:\\Syncthing Shared\\Game Mods & Tools\\Tools\\FromSoftware\\Repositories\\Active\\IconAutomatorPro\\obj\\",
+      "outputPath": "D:\\IconAutomatorPro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

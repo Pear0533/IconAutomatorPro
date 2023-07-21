@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sSuqyOvor0c8pqV2V2kXZc0mNjjASHCq6n6IJ/5HMyFpmAbpCGe1fy1nf7IStq8xMrktWKcrMeUjzP7KD3Smew==",
+  "dgSpecHash": "CAR7SvVbJP9kL5k0wyso2NSd4ouhw0S7DrNDSKFFo6ygxNaLMpJa9hCVKLH5T8cYNEJ00lRGOPpYWcuIxpI4rg==",
   "success": true,
-  "projectFilePath": "D:\\Syncthing Shared\\Game Mods & Tools\\Tools\\FromSoftware\\Repositories\\Active\\IconAutomatorPro\\IconAutomatorPro.csproj",
+  "projectFilePath": "D:\\IconAutomatorPro\\IconAutomatorPro.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Isaac Fisher\\.nuget\\packages\\gameloop.vdf\\0.6.2\\gameloop.vdf.0.6.2.nupkg.sha512",
     "C:\\Users\\Isaac Fisher\\.nuget\\packages\\magick.net-q16-anycpu\\12.3.0\\magick.net-q16-anycpu.12.3.0.nupkg.sha512",
