@@ -34,9 +34,22 @@
             copyrightInfoStr = new Label();
             automationSetupGroupBox = new GroupBox();
             iconsConfigGroupBox = new GroupBox();
+            newSheetGroupBox = new GroupBox();
+            label13 = new Label();
+            label10 = new Label();
+            numericUpDown2 = new NumericUpDown();
+            sheetNameTextBox = new TextBox();
+            label12 = new Label();
+            label11 = new Label();
+            numericUpDown1 = new NumericUpDown();
             hdIconsCheckbox = new CheckBox();
             iconSheetCheckbox = new CheckBox();
             iconSheetGroupBox = new GroupBox();
+            sheetSourceGroupBox = new GroupBox();
+            generateNewSheetRadioButton = new RadioButton();
+            useExistingSheetRadioButton = new RadioButton();
+            label1 = new Label();
+            iconSheetSelector = new ComboBox();
             postEffectsGroupBox = new GroupBox();
             postEffectsListBox = new TreeView();
             manualInsertLocationCheckbox = new CheckBox();
@@ -54,8 +67,6 @@
             label4 = new Label();
             label2 = new Label();
             iconPaddingNumBox = new NumericUpDown();
-            label1 = new Label();
-            iconSheetSelector = new ComboBox();
             gameModFolderGroupBox = new GroupBox();
             browseGameModFolderButton = new Button();
             gameModFolderPathLabel = new Label();
@@ -69,7 +80,11 @@
             versionStr = new Label();
             automationSetupGroupBox.SuspendLayout();
             iconsConfigGroupBox.SuspendLayout();
+            newSheetGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             iconSheetGroupBox.SuspendLayout();
+            sheetSourceGroupBox.SuspendLayout();
             postEffectsGroupBox.SuspendLayout();
             insertLocationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)columnNumBox).BeginInit();
@@ -87,12 +102,12 @@
             copyrightInfoStr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             copyrightInfoStr.AutoSize = true;
             copyrightInfoStr.ForeColor = Color.Gray;
-            copyrightInfoStr.Location = new Point(372, 6);
+            copyrightInfoStr.Location = new Point(535, 6);
             copyrightInfoStr.Margin = new Padding(2, 0, 2, 0);
             copyrightInfoStr.Name = "copyrightInfoStr";
             copyrightInfoStr.Size = new Size(174, 15);
             copyrightInfoStr.TabIndex = 1;
-            copyrightInfoStr.Text = "© Pear, 2023 All rights reserved.";
+            copyrightInfoStr.Text = "© Pear, 2024 All rights reserved.";
             // 
             // automationSetupGroupBox
             // 
@@ -102,23 +117,100 @@
             automationSetupGroupBox.Controls.Add(iconImagesGroupBox);
             automationSetupGroupBox.Location = new Point(8, 18);
             automationSetupGroupBox.Name = "automationSetupGroupBox";
-            automationSetupGroupBox.Size = new Size(536, 552);
+            automationSetupGroupBox.Size = new Size(699, 612);
             automationSetupGroupBox.TabIndex = 3;
             automationSetupGroupBox.TabStop = false;
             automationSetupGroupBox.Text = "Automation Setup";
             // 
             // iconsConfigGroupBox
             // 
+            iconsConfigGroupBox.Controls.Add(newSheetGroupBox);
             iconsConfigGroupBox.Controls.Add(hdIconsCheckbox);
             iconsConfigGroupBox.Controls.Add(iconSheetCheckbox);
             iconsConfigGroupBox.Controls.Add(iconSheetGroupBox);
             iconsConfigGroupBox.Enabled = false;
             iconsConfigGroupBox.Location = new Point(6, 171);
             iconsConfigGroupBox.Name = "iconsConfigGroupBox";
-            iconsConfigGroupBox.Size = new Size(524, 375);
+            iconsConfigGroupBox.Size = new Size(687, 435);
             iconsConfigGroupBox.TabIndex = 11;
             iconsConfigGroupBox.TabStop = false;
             iconsConfigGroupBox.Text = "Icons Configuration";
+            // 
+            // newSheetGroupBox
+            // 
+            newSheetGroupBox.Controls.Add(label13);
+            newSheetGroupBox.Controls.Add(label10);
+            newSheetGroupBox.Controls.Add(numericUpDown2);
+            newSheetGroupBox.Controls.Add(sheetNameTextBox);
+            newSheetGroupBox.Controls.Add(label12);
+            newSheetGroupBox.Controls.Add(label11);
+            newSheetGroupBox.Controls.Add(numericUpDown1);
+            newSheetGroupBox.Location = new Point(277, 77);
+            newSheetGroupBox.Name = "newSheetGroupBox";
+            newSheetGroupBox.Size = new Size(392, 85);
+            newSheetGroupBox.TabIndex = 24;
+            newSheetGroupBox.TabStop = false;
+            newSheetGroupBox.Text = "New Sheet";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(282, 37);
+            label13.Name = "label13";
+            label13.Size = new Size(40, 15);
+            label13.TabIndex = 23;
+            label13.Text = "Size Y:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(7, 36);
+            label10.Name = "label10";
+            label10.Size = new Size(74, 15);
+            label10.TabIndex = 14;
+            label10.Text = "Sheet Name:";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(282, 55);
+            numericUpDown2.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(103, 23);
+            numericUpDown2.TabIndex = 22;
+            // 
+            // sheetNameTextBox
+            // 
+            sheetNameTextBox.Location = new Point(7, 55);
+            sheetNameTextBox.Name = "sheetNameTextBox";
+            sheetNameTextBox.Size = new Size(159, 23);
+            sheetNameTextBox.TabIndex = 13;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(172, 36);
+            label12.Name = "label12";
+            label12.Size = new Size(40, 15);
+            label12.TabIndex = 21;
+            label12.Text = "Size X:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = Color.Gray;
+            label11.Location = new Point(4, 18);
+            label11.Name = "label11";
+            label11.Size = new Size(323, 15);
+            label11.TabIndex = 15;
+            label11.Text = "(Hint: SB_Status_X = status icons, SB_Icon_X = regular icons)";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(172, 55);
+            numericUpDown1.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(103, 23);
+            numericUpDown1.TabIndex = 20;
             // 
             // hdIconsCheckbox
             // 
@@ -144,11 +236,10 @@
             // 
             // iconSheetGroupBox
             // 
+            iconSheetGroupBox.Controls.Add(sheetSourceGroupBox);
             iconSheetGroupBox.Controls.Add(postEffectsGroupBox);
             iconSheetGroupBox.Controls.Add(manualInsertLocationCheckbox);
             iconSheetGroupBox.Controls.Add(insertVerticallyCheckbox);
-            iconSheetGroupBox.Controls.Add(label1);
-            iconSheetGroupBox.Controls.Add(iconSheetSelector);
             iconSheetGroupBox.Controls.Add(insertLocationGroupBox);
             iconSheetGroupBox.Controls.Add(label7);
             iconSheetGroupBox.Controls.Add(iconsHeightNumBox);
@@ -160,17 +251,73 @@
             iconSheetGroupBox.Controls.Add(iconPaddingNumBox);
             iconSheetGroupBox.Location = new Point(6, 45);
             iconSheetGroupBox.Name = "iconSheetGroupBox";
-            iconSheetGroupBox.Size = new Size(512, 324);
+            iconSheetGroupBox.Size = new Size(675, 384);
             iconSheetGroupBox.TabIndex = 12;
             iconSheetGroupBox.TabStop = false;
             iconSheetGroupBox.Text = "Icon Sheet";
             // 
+            // sheetSourceGroupBox
+            // 
+            sheetSourceGroupBox.Controls.Add(generateNewSheetRadioButton);
+            sheetSourceGroupBox.Controls.Add(useExistingSheetRadioButton);
+            sheetSourceGroupBox.Controls.Add(label1);
+            sheetSourceGroupBox.Controls.Add(iconSheetSelector);
+            sheetSourceGroupBox.Location = new Point(6, 22);
+            sheetSourceGroupBox.Name = "sheetSourceGroupBox";
+            sheetSourceGroupBox.Size = new Size(663, 100);
+            sheetSourceGroupBox.TabIndex = 29;
+            sheetSourceGroupBox.TabStop = false;
+            sheetSourceGroupBox.Text = "Sheet Source";
+            // 
+            // generateNewSheetRadioButton
+            // 
+            generateNewSheetRadioButton.AutoSize = true;
+            generateNewSheetRadioButton.Location = new Point(130, 21);
+            generateNewSheetRadioButton.Name = "generateNewSheetRadioButton";
+            generateNewSheetRadioButton.Size = new Size(131, 19);
+            generateNewSheetRadioButton.TabIndex = 12;
+            generateNewSheetRadioButton.TabStop = true;
+            generateNewSheetRadioButton.Text = "Generate New Sheet";
+            generateNewSheetRadioButton.UseVisualStyleBackColor = true;
+            generateNewSheetRadioButton.CheckedChanged += GenerateNewSheetRadioButton_CheckedChanged;
+            // 
+            // useExistingSheetRadioButton
+            // 
+            useExistingSheetRadioButton.AutoSize = true;
+            useExistingSheetRadioButton.Location = new Point(8, 21);
+            useExistingSheetRadioButton.Name = "useExistingSheetRadioButton";
+            useExistingSheetRadioButton.Size = new Size(120, 19);
+            useExistingSheetRadioButton.TabIndex = 11;
+            useExistingSheetRadioButton.TabStop = true;
+            useExistingSheetRadioButton.Text = "Use Existing Sheet";
+            useExistingSheetRadioButton.UseVisualStyleBackColor = true;
+            useExistingSheetRadioButton.CheckedChanged += UseExistingSheetRadioButton_CheckedChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 43);
+            label1.Name = "label1";
+            label1.Size = new Size(114, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Select an icon sheet:";
+            // 
+            // iconSheetSelector
+            // 
+            iconSheetSelector.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            iconSheetSelector.DropDownStyle = ComboBoxStyle.DropDownList;
+            iconSheetSelector.FormattingEnabled = true;
+            iconSheetSelector.Location = new Point(8, 62);
+            iconSheetSelector.Name = "iconSheetSelector";
+            iconSheetSelector.Size = new Size(239, 23);
+            iconSheetSelector.TabIndex = 0;
+            // 
             // postEffectsGroupBox
             // 
             postEffectsGroupBox.Controls.Add(postEffectsListBox);
-            postEffectsGroupBox.Location = new Point(6, 243);
+            postEffectsGroupBox.Location = new Point(5, 302);
             postEffectsGroupBox.Name = "postEffectsGroupBox";
-            postEffectsGroupBox.Size = new Size(500, 76);
+            postEffectsGroupBox.Size = new Size(664, 77);
             postEffectsGroupBox.TabIndex = 28;
             postEffectsGroupBox.TabStop = false;
             postEffectsGroupBox.Text = "Post-Effects";
@@ -185,13 +332,13 @@
             treeNode2.Name = "Node0";
             treeNode2.Text = "Drop Shadow";
             postEffectsListBox.Nodes.AddRange(new TreeNode[] { treeNode2 });
-            postEffectsListBox.Size = new Size(487, 52);
+            postEffectsListBox.Size = new Size(652, 52);
             postEffectsListBox.TabIndex = 0;
             // 
             // manualInsertLocationCheckbox
             // 
             manualInsertLocationCheckbox.AutoSize = true;
-            manualInsertLocationCheckbox.Location = new Point(110, 152);
+            manualInsertLocationCheckbox.Location = new Point(109, 212);
             manualInsertLocationCheckbox.Name = "manualInsertLocationCheckbox";
             manualInsertLocationCheckbox.Size = new Size(147, 19);
             manualInsertLocationCheckbox.TabIndex = 24;
@@ -202,7 +349,7 @@
             // insertVerticallyCheckbox
             // 
             insertVerticallyCheckbox.AutoSize = true;
-            insertVerticallyCheckbox.Location = new Point(6, 152);
+            insertVerticallyCheckbox.Location = new Point(5, 212);
             insertVerticallyCheckbox.Name = "insertVerticallyCheckbox";
             insertVerticallyCheckbox.Size = new Size(105, 19);
             insertVerticallyCheckbox.TabIndex = 20;
@@ -215,9 +362,9 @@
             insertLocationGroupBox.Controls.Add(columnNumBox);
             insertLocationGroupBox.Controls.Add(label8);
             insertLocationGroupBox.Controls.Add(rowNumBox);
-            insertLocationGroupBox.Location = new Point(6, 173);
+            insertLocationGroupBox.Location = new Point(5, 232);
             insertLocationGroupBox.Name = "insertLocationGroupBox";
-            insertLocationGroupBox.Size = new Size(499, 68);
+            insertLocationGroupBox.Size = new Size(664, 68);
             insertLocationGroupBox.TabIndex = 23;
             insertLocationGroupBox.TabStop = false;
             insertLocationGroupBox.Text = "Insert Location";
@@ -225,7 +372,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(249, 19);
+            label9.Location = new Point(332, 19);
             label9.Name = "label9";
             label9.Size = new Size(100, 15);
             label9.TabIndex = 27;
@@ -233,9 +380,9 @@
             // 
             // columnNumBox
             // 
-            columnNumBox.Location = new Point(251, 37);
+            columnNumBox.Location = new Point(334, 37);
             columnNumBox.Name = "columnNumBox";
-            columnNumBox.Size = new Size(241, 23);
+            columnNumBox.Size = new Size(323, 23);
             columnNumBox.TabIndex = 26;
             // 
             // label8
@@ -251,13 +398,13 @@
             // 
             rowNumBox.Location = new Point(6, 37);
             rowNumBox.Name = "rowNumBox";
-            rowNumBox.Size = new Size(241, 23);
+            rowNumBox.Size = new Size(323, 23);
             rowNumBox.TabIndex = 24;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(255, 62);
+            label7.Location = new Point(339, 120);
             label7.Name = "label7";
             label7.Size = new Size(77, 15);
             label7.TabIndex = 19;
@@ -265,24 +412,24 @@
             // 
             // iconsHeightNumBox
             // 
-            iconsHeightNumBox.Location = new Point(257, 80);
+            iconsHeightNumBox.Location = new Point(341, 138);
             iconsHeightNumBox.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
             iconsHeightNumBox.Name = "iconsHeightNumBox";
-            iconsHeightNumBox.Size = new Size(248, 23);
+            iconsHeightNumBox.Size = new Size(328, 23);
             iconsHeightNumBox.TabIndex = 18;
             // 
             // iconsWidthNumBox
             // 
-            iconsWidthNumBox.Location = new Point(6, 80);
+            iconsWidthNumBox.Location = new Point(5, 138);
             iconsWidthNumBox.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
             iconsWidthNumBox.Name = "iconsWidthNumBox";
-            iconsWidthNumBox.Size = new Size(248, 23);
+            iconsWidthNumBox.Size = new Size(328, 23);
             iconsWidthNumBox.TabIndex = 17;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(4, 62);
+            label5.Location = new Point(3, 120);
             label5.Name = "label5";
             label5.Size = new Size(73, 15);
             label5.TabIndex = 16;
@@ -290,15 +437,15 @@
             // 
             // maxIconsPerRowColNumBox
             // 
-            maxIconsPerRowColNumBox.Location = new Point(257, 124);
+            maxIconsPerRowColNumBox.Location = new Point(341, 182);
             maxIconsPerRowColNumBox.Name = "maxIconsPerRowColNumBox";
-            maxIconsPerRowColNumBox.Size = new Size(248, 23);
+            maxIconsPerRowColNumBox.Size = new Size(328, 23);
             maxIconsPerRowColNumBox.TabIndex = 15;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(255, 106);
+            label4.Location = new Point(339, 164);
             label4.Name = "label4";
             label4.Size = new Size(158, 15);
             label4.TabIndex = 14;
@@ -307,7 +454,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(4, 106);
+            label2.Location = new Point(3, 164);
             label2.Name = "label2";
             label2.Size = new Size(54, 15);
             label2.TabIndex = 13;
@@ -315,29 +462,10 @@
             // 
             // iconPaddingNumBox
             // 
-            iconPaddingNumBox.Location = new Point(6, 124);
+            iconPaddingNumBox.Location = new Point(5, 182);
             iconPaddingNumBox.Name = "iconPaddingNumBox";
-            iconPaddingNumBox.Size = new Size(248, 23);
+            iconPaddingNumBox.Size = new Size(328, 23);
             iconPaddingNumBox.TabIndex = 11;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(5, 17);
-            label1.Name = "label1";
-            label1.Size = new Size(114, 15);
-            label1.TabIndex = 10;
-            label1.Text = "Select an icon sheet:";
-            // 
-            // iconSheetSelector
-            // 
-            iconSheetSelector.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            iconSheetSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            iconSheetSelector.FormattingEnabled = true;
-            iconSheetSelector.Location = new Point(7, 36);
-            iconSheetSelector.Name = "iconSheetSelector";
-            iconSheetSelector.Size = new Size(498, 23);
-            iconSheetSelector.TabIndex = 0;
             // 
             // gameModFolderGroupBox
             // 
@@ -346,7 +474,7 @@
             gameModFolderGroupBox.Controls.Add(label6);
             gameModFolderGroupBox.Location = new Point(6, 25);
             gameModFolderGroupBox.Name = "gameModFolderGroupBox";
-            gameModFolderGroupBox.Size = new Size(524, 69);
+            gameModFolderGroupBox.Size = new Size(687, 69);
             gameModFolderGroupBox.TabIndex = 11;
             gameModFolderGroupBox.TabStop = false;
             gameModFolderGroupBox.Text = "Game/Mod Folder";
@@ -355,7 +483,7 @@
             // 
             browseGameModFolderButton.Location = new Point(6, 20);
             browseGameModFolderButton.Name = "browseGameModFolderButton";
-            browseGameModFolderButton.Size = new Size(512, 25);
+            browseGameModFolderButton.Size = new Size(675, 25);
             browseGameModFolderButton.TabIndex = 5;
             browseGameModFolderButton.Text = "Browse";
             browseGameModFolderButton.UseVisualStyleBackColor = true;
@@ -387,7 +515,7 @@
             iconImagesGroupBox.Enabled = false;
             iconImagesGroupBox.Location = new Point(6, 98);
             iconImagesGroupBox.Name = "iconImagesGroupBox";
-            iconImagesGroupBox.Size = new Size(524, 69);
+            iconImagesGroupBox.Size = new Size(687, 69);
             iconImagesGroupBox.TabIndex = 10;
             iconImagesGroupBox.TabStop = false;
             iconImagesGroupBox.Text = "Icon Images";
@@ -396,7 +524,7 @@
             // 
             browseIconImagesButton.Location = new Point(6, 20);
             browseIconImagesButton.Name = "browseIconImagesButton";
-            browseIconImagesButton.Size = new Size(512, 25);
+            browseIconImagesButton.Size = new Size(675, 25);
             browseIconImagesButton.TabIndex = 5;
             browseIconImagesButton.Text = "Browse";
             browseIconImagesButton.UseVisualStyleBackColor = true;
@@ -424,9 +552,9 @@
             // 
             automateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             automateButton.Enabled = false;
-            automateButton.Location = new Point(7, 573);
+            automateButton.Location = new Point(7, 635);
             automateButton.Name = "automateButton";
-            automateButton.Size = new Size(539, 25);
+            automateButton.Size = new Size(702, 25);
             automateButton.TabIndex = 7;
             automateButton.Text = "Automate!";
             automateButton.UseVisualStyleBackColor = true;
@@ -446,7 +574,7 @@
             versionStr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             versionStr.AutoSize = true;
             versionStr.ForeColor = Color.Gray;
-            versionStr.Location = new Point(309, 6);
+            versionStr.Location = new Point(472, 6);
             versionStr.Margin = new Padding(2, 0, 2, 0);
             versionStr.Name = "versionStr";
             versionStr.Size = new Size(48, 15);
@@ -457,7 +585,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(556, 605);
+            ClientSize = new Size(719, 669);
             Controls.Add(versionStr);
             Controls.Add(copyrightInfoStr);
             Controls.Add(statusLabel);
@@ -472,8 +600,14 @@
             automationSetupGroupBox.ResumeLayout(false);
             iconsConfigGroupBox.ResumeLayout(false);
             iconsConfigGroupBox.PerformLayout();
+            newSheetGroupBox.ResumeLayout(false);
+            newSheetGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             iconSheetGroupBox.ResumeLayout(false);
             iconSheetGroupBox.PerformLayout();
+            sheetSourceGroupBox.ResumeLayout(false);
+            sheetSourceGroupBox.PerformLayout();
             postEffectsGroupBox.ResumeLayout(false);
             insertLocationGroupBox.ResumeLayout(false);
             insertLocationGroupBox.PerformLayout();
@@ -528,5 +662,16 @@
         private TreeView postEffectsListBox;
         private CheckBox iconSheetCheckbox;
         private CheckBox hdIconsCheckbox;
+        private GroupBox sheetSourceGroupBox;
+        private RadioButton generateNewSheetRadioButton;
+        private RadioButton useExistingSheetRadioButton;
+        private Label label11;
+        private Label label10;
+        private TextBox sheetNameTextBox;
+        private Label label13;
+        private NumericUpDown numericUpDown2;
+        private Label label12;
+        private NumericUpDown numericUpDown1;
+        private GroupBox newSheetGroupBox;
     }
 }

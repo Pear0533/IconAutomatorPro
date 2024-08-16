@@ -12,7 +12,7 @@ namespace IconAutomatorPro;
 
 public partial class Form1 : Form
 {
-    private const string version = "1.7";
+    private const string version = "1.8";
     private static string gameModFolderPath = "";
     private static string layoutFilesBndPath = "";
     private static string iconSheetsTpfPath = "";
@@ -57,6 +57,7 @@ public partial class Form1 : Form
         foreach (TPF.Texture sheet in iconSheetsTpf.Textures.Where(sheet => IsValidIconSheet(sheet.Name)))
             iconSheetSelector.Items.Add(Path.GetFileNameWithoutExtension(sheet.Name));
         if (!isGameDS3) layoutFilesBnd = BND4.Read(layoutFilesBndPath);
+        useExistingSheetRadioButton.Checked = true;
         iconSheetSelector.SelectedIndex = isGameDS3 ? 9 : 5;
         iconPaddingNumBox.Value = isGameDS3 ? 0 : 3;
         maxIconsPerRowColNumBox.Value = 1;
@@ -436,6 +437,18 @@ public partial class Form1 : Form
     private void HDIconsCheckbox_CheckedChanged(object sender, EventArgs e)
     {
         wantsHdIcons = !wantsHdIcons;
+    }
+
+    private void UseExistingSheetRadioButton_CheckedChanged(object sender, EventArgs e)
+    {
+        iconSheetSelector.Enabled = true;
+        newSheetGroupBox.Enabled = false;
+    }
+
+    private void GenerateNewSheetRadioButton_CheckedChanged(object sender, EventArgs e)
+    {
+        iconSheetSelector.Enabled = false;
+        newSheetGroupBox.Enabled = true;
     }
 
     private enum TextureFormats

@@ -36,3 +36,79 @@ D:\IconAutomatorPro\obj\Debug\net6.0-windows\refint\IconAutomatorPro.dll
 D:\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.pdb
 D:\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.genruntimeconfig.cache
 D:\IconAutomatorPro\obj\Debug\net6.0-windows\ref\IconAutomatorPro.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.exe
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\DdsFileTypePlusIO_x64.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\oo2core_6_win64.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.deps.json
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.runtimeconfig.json
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.pdb
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\Gameloop.Vdf.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\Magick.NET-Q16-AnyCPU.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\Magick.NET.Core.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\Magick.Native-Q16-arm64.dll.so
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\linux-musl-x64\native\Magick.Native-Q16-x64.dll.so
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\linux-x64\native\Magick.Native-Q16-x64.dll.so
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\osx-arm64\native\Magick.Native-Q16-arm64.dll.dylib
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\osx-x64\native\Magick.Native-Q16-x64.dll.dylib
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Magick.Native-Q16-arm64.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\win-x86\native\Magick.Native-Q16-x86.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\DdsFileTypePlus.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\PaintDotNet.Base.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\SoulsFormats.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\DdsFileTypePlus.pdb
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\PaintDotNet.Base.pdb
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\SoulsFormats.pdb
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\SoulsFormats.xml
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.AssemblyReference.cache
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.Form1.resources
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.GenerateResource.cache
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.AssemblyInfoInputs.cache
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.AssemblyInfo.cs
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.CoreCompileInputs.cache
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.CopyComplete
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\refint\IconAutomatorPro.dll
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.pdb
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.genruntimeconfig.cache
+C:\Users\Isaac Fisher\Downloads\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\ref\IconAutomatorPro.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.exe
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\DdsFileTypePlusIO_x64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\oo2core_6_win64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.deps.json
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.runtimeconfig.json
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\IconAutomatorPro.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\Gameloop.Vdf.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\Magick.NET-Q16-AnyCPU.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\Magick.NET.Core.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\Magick.Native-Q16-arm64.dll.so
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\linux-musl-x64\native\Magick.Native-Q16-x64.dll.so
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\linux-x64\native\Magick.Native-Q16-x64.dll.so
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\osx-arm64\native\Magick.Native-Q16-arm64.dll.dylib
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\osx-x64\native\Magick.Native-Q16-x64.dll.dylib
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Magick.Native-Q16-arm64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\runtimes\win-x86\native\Magick.Native-Q16-x86.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\DdsFileTypePlus.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\PaintDotNet.Base.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\SoulsFormats.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\DdsFileTypePlus.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\PaintDotNet.Base.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\SoulsFormats.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\bin\Debug\net6.0-windows\SoulsFormats.xml
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.AssemblyReference.cache
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.Form1.resources
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.GenerateResource.cache
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.GeneratedMSBuildEditorConfig.editorconfig
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.AssemblyInfoInputs.cache
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.AssemblyInfo.cs
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.CoreCompileInputs.cache
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.csproj.CopyComplete
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\refint\IconAutomatorPro.dll
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.pdb
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\IconAutomatorPro.genruntimeconfig.cache
+D:\Syncthing Shared\Game Mods & Tools\Tools\FromSoftware\Repositories\Active\IconAutomatorPro\obj\Debug\net6.0-windows\ref\IconAutomatorPro.dll
