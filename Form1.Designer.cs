@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode1 = new TreeNode("Use ER Style");
-            TreeNode treeNode2 = new TreeNode("Drop Shadow", new TreeNode[] { treeNode1 });
+            TreeNode treeNode3 = new TreeNode("Use ER Style");
+            TreeNode treeNode4 = new TreeNode("Drop Shadow", new TreeNode[] { treeNode3 });
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             copyrightInfoStr = new Label();
             automationSetupGroupBox = new GroupBox();
@@ -37,11 +37,11 @@
             newSheetGroupBox = new GroupBox();
             label13 = new Label();
             label10 = new Label();
-            numericUpDown2 = new NumericUpDown();
+            sheetSizeYNumBox = new NumericUpDown();
             sheetNameTextBox = new TextBox();
             label12 = new Label();
             label11 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            sheetSizeXNumBox = new NumericUpDown();
             hdIconsCheckbox = new CheckBox();
             iconSheetCheckbox = new CheckBox();
             iconSheetGroupBox = new GroupBox();
@@ -81,8 +81,8 @@
             automationSetupGroupBox.SuspendLayout();
             iconsConfigGroupBox.SuspendLayout();
             newSheetGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sheetSizeYNumBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sheetSizeXNumBox).BeginInit();
             iconSheetGroupBox.SuspendLayout();
             sheetSourceGroupBox.SuspendLayout();
             postEffectsGroupBox.SuspendLayout();
@@ -140,11 +140,11 @@
             // 
             newSheetGroupBox.Controls.Add(label13);
             newSheetGroupBox.Controls.Add(label10);
-            newSheetGroupBox.Controls.Add(numericUpDown2);
+            newSheetGroupBox.Controls.Add(sheetSizeYNumBox);
             newSheetGroupBox.Controls.Add(sheetNameTextBox);
             newSheetGroupBox.Controls.Add(label12);
             newSheetGroupBox.Controls.Add(label11);
-            newSheetGroupBox.Controls.Add(numericUpDown1);
+            newSheetGroupBox.Controls.Add(sheetSizeXNumBox);
             newSheetGroupBox.Location = new Point(277, 77);
             newSheetGroupBox.Name = "newSheetGroupBox";
             newSheetGroupBox.Size = new Size(392, 85);
@@ -170,13 +170,13 @@
             label10.TabIndex = 14;
             label10.Text = "Sheet Name:";
             // 
-            // numericUpDown2
+            // sheetSizeYNumBox
             // 
-            numericUpDown2.Location = new Point(282, 55);
-            numericUpDown2.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(103, 23);
-            numericUpDown2.TabIndex = 22;
+            sheetSizeYNumBox.Location = new Point(282, 55);
+            sheetSizeYNumBox.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
+            sheetSizeYNumBox.Name = "sheetSizeYNumBox";
+            sheetSizeYNumBox.Size = new Size(103, 23);
+            sheetSizeYNumBox.TabIndex = 22;
             // 
             // sheetNameTextBox
             // 
@@ -204,13 +204,13 @@
             label11.TabIndex = 15;
             label11.Text = "(Hint: SB_Status_X = status icons, SB_Icon_X = regular icons)";
             // 
-            // numericUpDown1
+            // sheetSizeXNumBox
             // 
-            numericUpDown1.Location = new Point(172, 55);
-            numericUpDown1.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(103, 23);
-            numericUpDown1.TabIndex = 20;
+            sheetSizeXNumBox.Location = new Point(172, 55);
+            sheetSizeXNumBox.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
+            sheetSizeXNumBox.Name = "sheetSizeXNumBox";
+            sheetSizeXNumBox.Size = new Size(103, 23);
+            sheetSizeXNumBox.TabIndex = 20;
             // 
             // hdIconsCheckbox
             // 
@@ -327,11 +327,11 @@
             postEffectsListBox.CheckBoxes = true;
             postEffectsListBox.Location = new Point(6, 18);
             postEffectsListBox.Name = "postEffectsListBox";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Use ER Style";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "Drop Shadow";
-            postEffectsListBox.Nodes.AddRange(new TreeNode[] { treeNode2 });
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "Use ER Style";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "Drop Shadow";
+            postEffectsListBox.Nodes.AddRange(new TreeNode[] { treeNode4 });
             postEffectsListBox.Size = new Size(652, 52);
             postEffectsListBox.TabIndex = 0;
             // 
@@ -602,8 +602,8 @@
             iconsConfigGroupBox.PerformLayout();
             newSheetGroupBox.ResumeLayout(false);
             newSheetGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sheetSizeYNumBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sheetSizeXNumBox).EndInit();
             iconSheetGroupBox.ResumeLayout(false);
             iconSheetGroupBox.PerformLayout();
             sheetSourceGroupBox.ResumeLayout(false);
@@ -669,9 +669,9 @@
         private Label label10;
         private TextBox sheetNameTextBox;
         private Label label13;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown sheetSizeYNumBox;
         private Label label12;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown sheetSizeXNumBox;
         private GroupBox newSheetGroupBox;
     }
 }

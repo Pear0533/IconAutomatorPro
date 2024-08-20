@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text;
+using System.Text.Json;
 using System.Xml.Linq;
 using DdsFileTypePlus;
 using ImageMagick;
@@ -112,7 +113,6 @@ public partial class Form1 : Form
         {
             byte[] ddsBytes = await File.ReadAllBytesAsync(iconImagePath);
             DDS dds = new(ddsBytes);
-            // TODO: REFACTOR
             byte formatByte = 107;
             try
             {
@@ -200,20 +200,26 @@ public partial class Form1 : Form
         return recomDdsStream.ToArray();
     }
 
-    private static void WriteIconSheetTpf(int iconSheetEntryIndex)
+    private static void WriteIconSheetTpf(string iconSheetName, int iconSheetEntryIndex)
     {
+        // TODO: Cleanup
+        if (iconSheetEntryIndex == iconSheetsTpf.Textures.Count)
+            iconSheetsTpf.Textures.Add(JsonSerializer.Deserialize<TPF.Texture>(JsonSerializer.Serialize(iconSheetsTpf.Textures[^1])));
+        iconSheetsTpf.Textures[iconSheetEntryIndex].Name = iconSheetName;
         iconSheetsTpf.Textures[iconSheetEntryIndex].Bytes = ConvertMagickImageToDDS(iconSheet);
         iconSheetsTpf.Write(iconSheetsTpfPath);
     }
 
-    private int ReadIconSheetTpf(string iconSheetName)
+    private void BackupIconSheetTpf()
     {
         string backupIconSheetsTpfPath = iconSheetsTpfPath.Replace(".dcx", ".dcx.bak");
-        if (!File.Exists(backupIconSheetsTpfPath))
-        {
-            statusLabel.Invoke(() => statusLabel.Text = @"Creating backup of common TPF...");
-            iconSheetsTpf.Write(backupIconSheetsTpfPath);
-        }
+        if (File.Exists(backupIconSheetsTpfPath)) return;
+        statusLabel.Invoke(() => statusLabel.Text = @"Creating backup of common TPF...");
+        iconSheetsTpf.Write(backupIconSheetsTpfPath);
+    }
+
+    private static int ReadIconSheetTpf(string iconSheetName)
+    {
         TPF.Texture? iconSheetEntry = iconSheetsTpf.FirstOrDefault(i => i.Name.Contains(iconSheetName));
         if (iconSheetEntry == null)
         {
@@ -245,11 +251,17 @@ public partial class Form1 : Form
         return -1;
     }
 
-    // TODO: REFACTOR
-
     private void WriteIconSheet(string iconSheetName, int padding, int maxIconsPerRowCol)
     {
-        int iconSheetEntryIndex = ReadIconSheetTpf(iconSheetName);
+        BackupIconSheetTpf();
+        int iconSheetEntryIndex;
+        if (generateNewSheetRadioButton.Checked)
+        {
+            iconSheetEntryIndex = iconSheetsTpf.Textures.Count;
+            // TODO: See if there is a way to bypass the max size (4096x4096) enforced by Magick...
+            iconSheet = new MagickImage(MagickColors.Transparent, (int)sheetSizeXNumBox.Value, (int)sheetSizeYNumBox.Value);
+        }
+        else iconSheetEntryIndex = ReadIconSheetTpf(iconSheetName);
         if (iconSheetEntryIndex == -1) return;
         statusLabel.Invoke(() => statusLabel.Text = $@"Writing {iconSheetName}...");
         int.TryParse(iconsWidthNumBox.Value.ToString(CultureInfo.InvariantCulture), out int iconsWidth);
@@ -259,11 +271,16 @@ public partial class Form1 : Form
         int iconsWidthWithPadding = iconsWidth + padding;
         int iconsHeightWithPadding = iconsHeight + padding;
         int newEntryCount = iconImagePaths.Length;
+        // TODO: WIP
+        /*
         int layoutFileEntryIndex = ReadLayoutFile(iconSheetName);
         XElement lastLayoutEntry = (XElement)layoutFile?.Nodes().OrderBy(i =>
             int.Parse(((XElement)i).Attribute("x")?.Value.ToString()!)).ThenBy(i =>
             int.Parse(((XElement)i).Attribute("y")?.Value.ToString()!)).LastOrDefault()!;
+        */
         int lastEntryX = 0, lastEntryY = 0;
+        // TODO: WIP
+        /*
         if (manualInsertLocationCheckbox.Checked)
         {
             int lastEntryRowNum = (int)rowNumBox.Value;
@@ -277,6 +294,7 @@ public partial class Form1 : Form
             lastEntryY = int.Parse(lastLayoutEntry.Attribute("y")?.Value!);
         }
         string layoutEntryIdentifier = iconSheetName.Contains("Status") ? "MENU_StatusIcon" : "MENU_ItemIcon";
+        */
         while (newEntryCount > 0)
         {
             newEntryCount--;
@@ -298,6 +316,8 @@ public partial class Form1 : Form
                     lastEntryY += iconsHeightWithPadding;
                 }
             }
+            // TODO: WIP
+            /*
             if (!isGameDS3)
             {
                 string newEntryName = Path.GetFileName(iconImagePaths[^(newEntryCount + 1)]);
@@ -310,14 +330,18 @@ public partial class Form1 : Form
                 newEntry.Attribute("height")!.Value = iconsHeight.ToString();
                 layoutFile?.Add(newEntry);
             }
+            */
             AddIconToIconSheet(newEntryCount, lastEntryX, lastEntryY, iconsWidth, iconsHeight);
         }
+        // TODO: WIP
+        /*
         if (!isGameDS3)
         {
             layoutFilesBnd.Files[layoutFileEntryIndex].Bytes = Encoding.UTF8.GetBytes(layoutFile?.ToString()!);
             layoutFilesBnd.Write(layoutFilesBndPath);
         }
-        WriteIconSheetTpf(iconSheetEntryIndex);
+        */
+        WriteIconSheetTpf(iconSheetName, iconSheetEntryIndex);
     }
 
     private void ToggleAutomationControls(bool wantsEnabled)
@@ -351,7 +375,7 @@ public partial class Form1 : Form
             ShowInformationDialog("At least one automation option must be selected (icon sheet and/or HD icons).");
             return;
         }
-        string? selectedIconSheetName = iconSheetSelector.SelectedItem.ToString();
+        string? selectedIconSheetName = useExistingSheetRadioButton.Checked ? iconSheetSelector.SelectedItem.ToString() : sheetNameTextBox.Text;
         if (selectedIconSheetName == null)
         {
             ShowInformationDialog("No icon sheet has been specified in the automation setup.");
