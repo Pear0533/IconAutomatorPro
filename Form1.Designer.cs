@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode3 = new TreeNode("Use ER Style");
-            TreeNode treeNode4 = new TreeNode("Drop Shadow", new TreeNode[] { treeNode3 });
+            TreeNode treeNode1 = new TreeNode("Use ER Style");
+            TreeNode treeNode2 = new TreeNode("Drop Shadow", new TreeNode[] { treeNode1 });
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             copyrightInfoStr = new Label();
             automationSetupGroupBox = new GroupBox();
@@ -174,9 +174,11 @@
             // 
             sheetSizeYNumBox.Location = new Point(282, 55);
             sheetSizeYNumBox.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
+            sheetSizeYNumBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             sheetSizeYNumBox.Name = "sheetSizeYNumBox";
             sheetSizeYNumBox.Size = new Size(103, 23);
             sheetSizeYNumBox.TabIndex = 22;
+            sheetSizeYNumBox.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // sheetNameTextBox
             // 
@@ -208,9 +210,11 @@
             // 
             sheetSizeXNumBox.Location = new Point(172, 55);
             sheetSizeXNumBox.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
+            sheetSizeXNumBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             sheetSizeXNumBox.Name = "sheetSizeXNumBox";
             sheetSizeXNumBox.Size = new Size(103, 23);
             sheetSizeXNumBox.TabIndex = 20;
+            sheetSizeXNumBox.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // hdIconsCheckbox
             // 
@@ -327,11 +331,11 @@
             postEffectsListBox.CheckBoxes = true;
             postEffectsListBox.Location = new Point(6, 18);
             postEffectsListBox.Name = "postEffectsListBox";
-            treeNode3.Name = "Node1";
-            treeNode3.Text = "Use ER Style";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "Drop Shadow";
-            postEffectsListBox.Nodes.AddRange(new TreeNode[] { treeNode4 });
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Use ER Style";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Drop Shadow";
+            postEffectsListBox.Nodes.AddRange(new TreeNode[] { treeNode2 });
             postEffectsListBox.Size = new Size(652, 52);
             postEffectsListBox.TabIndex = 0;
             // 

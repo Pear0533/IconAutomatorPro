@@ -202,9 +202,11 @@ public partial class Form1 : Form
 
     private static void WriteIconSheetTpf(string iconSheetName, int iconSheetEntryIndex)
     {
-        // TODO: Cleanup
         if (iconSheetEntryIndex == iconSheetsTpf.Textures.Count)
-            iconSheetsTpf.Textures.Add(JsonSerializer.Deserialize<TPF.Texture>(JsonSerializer.Serialize(iconSheetsTpf.Textures[^1])));
+        {
+            string lastIconSheetEntry = JsonSerializer.Serialize(iconSheetsTpf.Textures[^1]);
+            iconSheetsTpf.Textures.Add(JsonSerializer.Deserialize<TPF.Texture>(lastIconSheetEntry));
+        }
         iconSheetsTpf.Textures[iconSheetEntryIndex].Name = iconSheetName;
         iconSheetsTpf.Textures[iconSheetEntryIndex].Bytes = ConvertMagickImageToDDS(iconSheet);
         iconSheetsTpf.Write(iconSheetsTpfPath);
@@ -258,7 +260,6 @@ public partial class Form1 : Form
         if (generateNewSheetRadioButton.Checked)
         {
             iconSheetEntryIndex = iconSheetsTpf.Textures.Count;
-            // TODO: See if there is a way to bypass the max size (4096x4096) enforced by Magick...
             iconSheet = new MagickImage(MagickColors.Transparent, (int)sheetSizeXNumBox.Value, (int)sheetSizeYNumBox.Value);
         }
         else iconSheetEntryIndex = ReadIconSheetTpf(iconSheetName);
