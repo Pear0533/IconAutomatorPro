@@ -272,16 +272,16 @@ public partial class Form1 : Form
         int iconsWidthWithPadding = iconsWidth + padding;
         int iconsHeightWithPadding = iconsHeight + padding;
         int newEntryCount = iconImagePaths.Length;
-        // TODO: WIP
-        /*
-        int layoutFileEntryIndex = ReadLayoutFile(iconSheetName);
-        XElement lastLayoutEntry = (XElement)layoutFile?.Nodes().OrderBy(i =>
-            int.Parse(((XElement)i).Attribute("x")?.Value.ToString()!)).ThenBy(i =>
-            int.Parse(((XElement)i).Attribute("y")?.Value.ToString()!)).LastOrDefault()!;
-        */
+        int layoutFileEntryIndex = -1;
+        XElement? lastLayoutEntry = null;
+        if (useExistingSheetRadioButton.Checked)
+        {
+            layoutFileEntryIndex = ReadLayoutFile(iconSheetName);
+            lastLayoutEntry = (XElement)layoutFile?.Nodes().OrderBy(i =>
+                int.Parse(((XElement)i).Attribute("x")?.Value.ToString()!)).ThenBy(i =>
+                int.Parse(((XElement)i).Attribute("y")?.Value.ToString()!)).LastOrDefault()!;
+        }
         int lastEntryX = 0, lastEntryY = 0;
-        // TODO: WIP
-        /*
         if (manualInsertLocationCheckbox.Checked)
         {
             int lastEntryRowNum = (int)rowNumBox.Value;
@@ -289,13 +289,12 @@ public partial class Form1 : Form
             lastEntryX = iconsWidthWithPadding * (lastEntryColumnNum - (insertVerticallyCheckbox.Checked ? 0 : 1)) - iconsWidthWithPadding;
             lastEntryY = iconsHeightWithPadding * (lastEntryRowNum - (insertVerticallyCheckbox.Checked ? 1 : 0)) - iconsHeightWithPadding;
         }
-        else if (!isGameDS3)
+        else if (lastLayoutEntry != null && !isGameDS3)
         {
             lastEntryX = int.Parse(lastLayoutEntry.Attribute("x")?.Value!);
             lastEntryY = int.Parse(lastLayoutEntry.Attribute("y")?.Value!);
         }
         string layoutEntryIdentifier = iconSheetName.Contains("Status") ? "MENU_StatusIcon" : "MENU_ItemIcon";
-        */
         while (newEntryCount > 0)
         {
             newEntryCount--;
@@ -317,9 +316,8 @@ public partial class Form1 : Form
                     lastEntryY += iconsHeightWithPadding;
                 }
             }
-            // TODO: WIP
-            /*
-            if (!isGameDS3)
+            // TODO: We need the layout entry structure so we can create one from scratch...
+            if (lastLayoutEntry != null && !isGameDS3)
             {
                 string newEntryName = Path.GetFileName(iconImagePaths[^(newEntryCount + 1)]);
                 XElement newEntry = new(lastLayoutEntry);
@@ -331,17 +329,13 @@ public partial class Form1 : Form
                 newEntry.Attribute("height")!.Value = iconsHeight.ToString();
                 layoutFile?.Add(newEntry);
             }
-            */
             AddIconToIconSheet(newEntryCount, lastEntryX, lastEntryY, iconsWidth, iconsHeight);
         }
-        // TODO: WIP
-        /*
-        if (!isGameDS3)
+        if (layoutFileEntryIndex != -1 && !isGameDS3)
         {
             layoutFilesBnd.Files[layoutFileEntryIndex].Bytes = Encoding.UTF8.GetBytes(layoutFile?.ToString()!);
             layoutFilesBnd.Write(layoutFilesBndPath);
         }
-        */
         WriteIconSheetTpf(iconSheetName, iconSheetEntryIndex);
     }
 
