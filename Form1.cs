@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Xml.Linq;
@@ -248,9 +249,16 @@ public partial class Form1 : Form
         int layoutFileEntryIndex = layoutFilesBnd.Files.IndexOf(layoutFileEntry);
         string layoutFileStr = Encoding.UTF8.GetString(layoutFileEntry.Bytes);
         layoutFile = XDocument.Parse(layoutFileStr).Root;
+        Console.WriteLine(layoutFile);
         if (layoutFile != null) return layoutFileEntryIndex;
         ShowInformationDialog($"The layout file, ${iconSheetName}, could not be parsed.");
         return -1;
+    }
+
+    private static void CreateLayoutFile(string iconSheetName)
+    {
+        layoutFile = XDocument.Parse($"<TextureAtlas imagePath=\"{iconSheetName}.png\">\r\n</TextureAtlas>").Root;
+        Console.Write(layoutFile);
     }
 
     private void WriteIconSheet(string iconSheetName, int padding, int maxIconsPerRowCol)
@@ -259,6 +267,9 @@ public partial class Form1 : Form
         int iconSheetEntryIndex;
         if (generateNewSheetRadioButton.Checked)
         {
+            // TODO: Function
+            string backupLayoutFilesBndPath = layoutFilesBndPath.Replace(".dcx", ".dcx.bak");
+            if (!File.Exists(backupLayoutFilesBndPath)) layoutFilesBnd.Write(backupLayoutFilesBndPath);
             iconSheetEntryIndex = iconSheetsTpf.Textures.Count;
             iconSheet = new MagickImage(MagickColors.Transparent, (int)sheetSizeXNumBox.Value, (int)sheetSizeYNumBox.Value);
         }
@@ -272,14 +283,24 @@ public partial class Form1 : Form
         int iconsWidthWithPadding = iconsWidth + padding;
         int iconsHeightWithPadding = iconsHeight + padding;
         int newEntryCount = iconImagePaths.Length;
-        int layoutFileEntryIndex = -1;
-        XElement? lastLayoutEntry = null;
+        int layoutFileEntryIndex;
+        XElement? lastLayoutEntry;
         if (useExistingSheetRadioButton.Checked)
         {
             layoutFileEntryIndex = ReadLayoutFile(iconSheetName);
             lastLayoutEntry = (XElement)layoutFile?.Nodes().OrderBy(i =>
                 int.Parse(((XElement)i).Attribute("x")?.Value.ToString()!)).ThenBy(i =>
                 int.Parse(((XElement)i).Attribute("y")?.Value.ToString()!)).LastOrDefault()!;
+        }
+        else
+        {
+            layoutFileEntryIndex = layoutFilesBnd.Files.Count;
+            CreateLayoutFile(iconSheetName);
+            // TODO: We need to account for status icons as well...
+            // TODO: We should probably add a property for the starting icon ID...
+            string xelement = $"<SubTexture name=\"\" x=\"{(insertVerticallyCheckbox.Checked ? 0 : -163)}\" "
+                + $"y=\"{(!insertVerticallyCheckbox.Checked ? 0 : -163)}\" width=\"0\" height=\"0\" half=\"0\"/>";
+            lastLayoutEntry = XElement.Parse(xelement);
         }
         int lastEntryX = 0, lastEntryY = 0;
         if (manualInsertLocationCheckbox.Checked)
@@ -289,7 +310,7 @@ public partial class Form1 : Form
             lastEntryX = iconsWidthWithPadding * (lastEntryColumnNum - (insertVerticallyCheckbox.Checked ? 0 : 1)) - iconsWidthWithPadding;
             lastEntryY = iconsHeightWithPadding * (lastEntryRowNum - (insertVerticallyCheckbox.Checked ? 1 : 0)) - iconsHeightWithPadding;
         }
-        else if (lastLayoutEntry != null && !isGameDS3)
+        else if (!isGameDS3)
         {
             lastEntryX = int.Parse(lastLayoutEntry.Attribute("x")?.Value!);
             lastEntryY = int.Parse(lastLayoutEntry.Attribute("y")?.Value!);
@@ -317,7 +338,7 @@ public partial class Form1 : Form
                 }
             }
             // TODO: We need the layout entry structure so we can create one from scratch...
-            if (lastLayoutEntry != null && !isGameDS3)
+            if (!isGameDS3)
             {
                 string newEntryName = Path.GetFileName(iconImagePaths[^(newEntryCount + 1)]);
                 XElement newEntry = new(lastLayoutEntry);
@@ -333,6 +354,15 @@ public partial class Form1 : Form
         }
         if (layoutFileEntryIndex != -1 && !isGameDS3)
         {
+            // TODO: Function
+            if (layoutFileEntryIndex == layoutFilesBnd.Files.Count)
+            {
+                string lastLayoutFileEntry = JsonSerializer.Serialize(layoutFilesBnd.Files[^1]);
+                layoutFilesBnd.Files.Add(JsonSerializer.Deserialize<BinderFile>(lastLayoutFileEntry));
+            }
+            string? lastLayoutEntryPath = layoutFilesBnd.Files[layoutFileEntryIndex].Name;
+            lastLayoutEntryPath = lastLayoutEntryPath[..Math.Max(lastLayoutEntryPath.LastIndexOf('\\'), lastLayoutEntryPath.LastIndexOf('/'))];
+            layoutFilesBnd.Files[layoutFileEntryIndex].Name = $"{lastLayoutEntryPath}\\{iconSheetName}.layout";
             layoutFilesBnd.Files[layoutFileEntryIndex].Bytes = Encoding.UTF8.GetBytes(layoutFile?.ToString()!);
             layoutFilesBnd.Write(layoutFilesBndPath);
         }
