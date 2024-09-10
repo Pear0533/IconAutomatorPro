@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Xml.Linq;
@@ -400,8 +399,8 @@ public partial class Form1 : Form
             ShowInformationDialog("At least one automation option must be selected (icon sheet and/or HD icons).");
             return;
         }
-        string? selectedIconSheetName = useExistingSheetRadioButton.Checked ? iconSheetSelector.SelectedItem.ToString() : sheetNameTextBox.Text;
-        if (selectedIconSheetName == null)
+        string selectedIconSheetName = (useExistingSheetRadioButton.Checked ? iconSheetSelector.SelectedItem.ToString() : sheetNameTextBox.Text) ?? "";
+        if (selectedIconSheetName == "")
         {
             ShowInformationDialog("No icon sheet has been specified in the automation setup.");
             return;
